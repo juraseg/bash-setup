@@ -129,15 +129,15 @@ function prompt_command {
         PWDNAME="~${PWD:${#HOME}}"
     fi
 
-    # parse git status and get git variables
-    parse_git_status
-    # parse hg status and get hg variables
-    parse_hg_status
+    ## parse git status and get git variables
+    #parse_git_status
+    ## parse hg status and get hg variables
+    #parse_hg_status
 
-    # build b/w prompt for git
-    [[ ! -z $GIT_BRANCH ]] && PS1_GIT=" (git: ${GIT_BRANCH})"
-    # build b/w prompt for hg
-    [[ ! -z $HG_BRANCH ]] && PS1_HG=" (hg: ${HG_BRANCH})"
+    ## build b/w prompt for git
+    #[[ ! -z $GIT_BRANCH ]] && PS1_GIT=" (git: ${GIT_BRANCH})"
+    ## build b/w prompt for hg
+    #[[ ! -z $HG_BRANCH ]] && PS1_HG=" (hg: ${HG_BRANCH})"
 
     [[ ! -z $VIRTUAL_ENV ]] && PS1_VENV=" (venv: ${VIRTUAL_ENV#$WORKON_HOME})"
 
@@ -150,27 +150,28 @@ function prompt_command {
         esac
 
         # build git status for prompt
-        if [ ! -z $GIT_BRANCH ]; then
-            if [ -z $GIT_DIRTY ]; then
-                PS1_GIT=" (git: ${color_green}${GIT_BRANCH}${color_off})"
-            else
-                PS1_GIT=" (git: ${color_red}${GIT_BRANCH}${color_off})"
-            fi
-        fi
+        #if [ ! -z $GIT_BRANCH ]; then
+            #if [ -z $GIT_DIRTY ]; then
+                #PS1_GIT=" (git: ${color_green}${GIT_BRANCH}${color_off})"
+            #else
+                #PS1_GIT=" (git: ${color_red}${GIT_BRANCH}${color_off})"
+            #fi
+        #fi
 
         # build hg status for prompt
-        if [ ! -z $HG_BRANCH ]; then
-            if [ -z $HG_DIRTY ]; then
-                PS1_HG=" (hg: ${color_green}${HG_BRANCH}${color_off})"
-            else
-                PS1_HG=" (hg: ${color_red}${HG_BRANCH}${color_off})"
-            fi
-        fi
+        #if [ ! -z $HG_BRANCH ]; then
+            #if [ -z $HG_DIRTY ]; then
+                #PS1_HG=" (hg: ${color_green}${HG_BRANCH}${color_off})"
+            #else
+                #PS1_HG=" (hg: ${color_red}${HG_BRANCH}${color_off})"
+            #fi
+        #fi
         # build python venv status for prompt
         [[ ! -z $VIRTUAL_ENV ]] && PS1_VENV=" (venv: ${color_blue}${VIRTUAL_ENV#$WORKON_HOME}${color_off})"
     fi
 
-    PS1="${color_user}${USER}${color_off}@${color_yellow}${HOSTNAME}${color_off}:${color_white}${PWDNAME}${color_off}${PS1_GIT}${PS1_HG}${PS1_VENV} ${FILL} ->\n"
+    #PS1="${color_user}${USER}${color_off}@${color_yellow}${HOSTNAME}${color_off}:${color_white}${PWDNAME}${color_off}${PS1_GIT}${PS1_HG}${PS1_VENV} ${FILL} ->\n"
+    PS1="${color_user}${USER}${color_off}@${color_yellow}${HOSTNAME}${color_off}:${color_white}${PWDNAME}${color_off}${PS1_VENV} ${FILL} ->\n"
 }
 PROMPT_COMMAND=prompt_command
 
