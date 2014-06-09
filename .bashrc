@@ -195,3 +195,6 @@ fi
 tty -s && stty werase ^- 2>/dev/null
 
 set -o vi
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
