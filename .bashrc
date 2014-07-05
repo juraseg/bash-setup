@@ -112,7 +112,6 @@ function prompt_command {
     exec < /dev/tty
     local OLDSTTY=$(stty -g)
     stty raw -echo min 0
-    echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
     stty $OLDSTTY
     [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
 
