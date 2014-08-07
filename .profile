@@ -21,4 +21,4 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/emacs -nw

@@ -193,7 +193,7 @@ fi
 # this is for delete words by ^W
 tty -s && stty werase ^- 2>/dev/null
 
-set -o vi
+set -o emacs
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
